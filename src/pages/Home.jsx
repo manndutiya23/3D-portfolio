@@ -3,10 +3,10 @@ import {Canvas} from '@react-three/fiber'
 import Loader from '../components/Loader'
 
 import Island from '../models/island';
-import Sky from '../models/sky';
+import Sky from '../models/Sky';
 import Brid from '../models/Bird';
 import Plane from '../models/Plane';
-import HomeInfo from '../components/homeinfo';
+import HomeInfo from '../components/HomeInfo';
 
 import sakura from '../assets/sakura.mp3';
 import { useScroll } from '@react-three/drei';
