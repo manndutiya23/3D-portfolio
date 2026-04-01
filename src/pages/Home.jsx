@@ -61,7 +61,7 @@ return [ screenScale, screenPosition ];
 const [ islandScale, islandPosition, islandRotation ] = adjustIslandForScreenSize();
 const [ planeScale, planePosition ] = adjustPlaneForScreenSize();
   return (
-    <section className="w-full h-screen relative">
+<section className="w-full h-[100dvh] min-h-screen relative">
       <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
       {currentStage && <HomeInfo currentStage={currentStage} />}
       </div> 
@@ -98,7 +98,7 @@ camera={{ near: 0.1, far: 1000 }}
         </Suspense>
       </Canvas>
 
-      <div className="absolute bottom-2 left-2">
+<div className="absolute left-2" style={{ bottom: "max(0.5rem, env(safe-area-inset-bottom))" }}>
         <img 
         src={!isPlayingMusic ? soundoff : soundon}
         alt="Sound "
