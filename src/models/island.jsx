@@ -23,42 +23,47 @@ const Island = ({isrotating, setisrotating, setCurrentStage, ...props})  => {
   const rotationspeed = useRef(0);
   const dampingfactor = 0.95;
 
-  const handlePointerDown = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    setisrotating(true);
+const handlePointerDown = (e) => {
+e.stopPropagation();
+e.preventDefault();
+setisrotating(true);
 
-    const clientX = e.touches 
-    ? e.touches[0].clientX 
-    : e.clientX;
+if (e.pointerId !== undefined && e.target?.setPointerCapture) {
+e.target.setPointerCapture(e.pointerId);
+}
 
-  lastX.current = clientX;
-  }
-  
-  const handlePointerUp = (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-      setisrotating(false);
+const clientX = e.touches
+? e.touches[0].clientX
+: e.clientX;
+lastX.current = clientX;
+};
+const endRotation = (e) => {
+e?.stopPropagation?.();
+e?.preventDefault?.();
 
-  }
+if (e?.pointerId !== undefined && e.target?.releasePointerCapture) {
+e.target.releasePointerCapture(e.pointerId);
+}
 
-  const handlePointerMove = (e) => {
-    e.stopPropagation();
-    e.preventDefault(); 
+setisrotating(false);
+};
 
-    if (isrotating) {
-       const clientX = e.touches 
-      ? e.touches[0].clientX 
+const handlePointerMove = (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+
+  if (isrotating) {
+    const clientX = e.touches
+      ? e.touches[0].clientX
       : e.clientX;
 
-    const delta = (clientX - lastX.current)/ viewport.width;
+    const delta = (clientX - lastX.current) / viewport.width;
 
     islandRef.current.rotation.y += delta * 0.01 * Math.PI;
     lastX.current = clientX;
     rotationspeed.current = delta * 0.01 * Math.PI;
-    }
-      
   }
+};
 
   const handlekeydown = (e) => {
     if (e.key === 'ArrowLeft') {
@@ -132,25 +137,32 @@ const Island = ({isrotating, setisrotating, setCurrentStage, ...props})  => {
 
 
 
-  useEffect(() => {
-    const canvas = gl.domElement;
-    canvas.addEventListener('pointerdown', handlePointerDown);
-    canvas.addEventListener('pointerup', handlePointerUp);
-    canvas.addEventListener('pointermove', handlePointerMove);   
-    document.addEventListener('keydown', handlekeydown);
-    document.addEventListener('keyup', handlekeyup);
+useEffect(() => {
+const canvas = gl.domElement;
 
-    return () => {
-      canvas.removeEventListener('pointerdown', handlePointerDown);
-      canvas.removeEventListener('pointerup', handlePointerUp);
-      canvas.removeEventListener('pointermove', handlePointerMove);
-      document.removeEventListener('keydown', handlekeydown);
-      document.removeEventListener('keyup', handlekeyup);
-    }
+canvas.addEventListener("pointerdown", handlePointerDown);
+canvas.addEventListener("pointermove", handlePointerMove);
 
-  
-  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+canvas.addEventListener("pointerup", endRotation);
+canvas.addEventListener("pointercancel", endRotation);
+canvas.addEventListener("pointerleave", endRotation);
+canvas.addEventListener("lostpointercapture", endRotation);
 
+document.addEventListener("keydown", handlekeydown);
+document.addEventListener("keyup", handlekeyup);
+
+return () => {
+canvas.removeEventListener("pointerdown", handlePointerDown);
+canvas.removeEventListener("pointermove", handlePointerMove);
+canvas.removeEventListener("pointerup", endRotation);
+canvas.removeEventListener("pointercancel", endRotation);
+canvas.removeEventListener("pointerleave", endRotation);
+canvas.removeEventListener("lostpointercapture", endRotation);
+
+document.removeEventListener("keydown", handlekeydown);
+document.removeEventListener("keyup", handlekeyup);
+};
+}, [gl, handlePointerDown, handlePointerMove, endRotation]);
 
   return (
     <a.group ref={islandRef} {...props} >

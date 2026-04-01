@@ -65,9 +65,12 @@ const [ planeScale, planePosition ] = adjustPlaneForScreenSize();
       <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
       {currentStage && <HomeInfo currentStage={currentStage} />}
       </div> 
-      <Canvas 
-      className={`w-full h-full bg-transparent ${isrotating ? 'cursor-grabbing' : 'cursor-grab'}`}
-      camera={{near: 0.1, far:1000}}
+<Canvas
+className={"w-full h-full bg-transparent " + (isrotating ? "cursor-grabbing" : "cursor-grab")}
+style={{ touchAction: "none" }}
+dpr={[1, 2]}
+gl={{ antialias: true, powerPreference: "high-performance" }}
+camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
           <directionalLight position={[1,1,1]} intensity={2}/>
