@@ -7,6 +7,7 @@ import Fox  from '../models/Fox'
 import Loader from '../components/Loader'
 import useAlert from '../hooks/useAlert';
 import Alert from '../components/Alert';
+import { socialLinks } from '../costants'
 
 const Contact = () => {
   const formRef = useRef(null)
@@ -148,6 +149,24 @@ const Contact = () => {
           </button>
 
         </form>
+
+        <div className="mt-6">
+          <h4 className="font-semibold mb-3">Connect with me</h4>
+          <div className="flex items-center gap-4">
+            {socialLinks.map((s) => (
+              <a
+                key={s.name}
+                href={s.link}
+                className="flex items-center gap-2 bg-white/80 hover:bg-white px-4 py-2 rounded-lg shadow-md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={s.iconUrl} alt={s.name} className="w-6 h-6 object-contain" />
+                <span className="text-sm text-gray-700">{s.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">

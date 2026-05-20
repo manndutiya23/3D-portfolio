@@ -1,0 +1,6 @@
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="50" height="50" rx="8" fill="#1F2937"/>
+  <path d="M25 10C20.5817 10 17 13.5817 17 18C17 22.4183 20.5817 26 25 26C29.4183 26 33 22.4183 33 18C33 13.5817 29.4183 10 25 10Z" fill="#F59E0B"/>
+  <path d="M19 30C19 27 22 25 25 25C28 25 31 27 31 30V34H19V30Z" fill="#FBBF24"/>
+  <text x="25" y="36.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="6" fill="#FFFFFF">JWT</text>
+</svg>

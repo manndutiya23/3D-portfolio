@@ -6,6 +6,8 @@ import {
     css,
     estate,
     express,
+    jwt,
+    rest,
     git,
     github,
     html,
@@ -27,7 +29,9 @@ import {
     typescript,
     sofa,
     dog,
-    s
+    s,
+    IBOP,
+    Shrinath,
 } from "../assets/icons";
 
 export const skills = [
@@ -71,9 +75,37 @@ export const skills = [
         name: "Git",
         type: "Version Control",
     },
+    {
+        imageUrl: express,
+        name: "Express.js",
+        type: "Backend",
+    },
+    {
+        imageUrl: jwt,
+        name: "JWT",
+        type: "Authentication",
+    },
+    {
+        imageUrl: rest,
+        name: "REST APIs",
+        type: "APIs",
+    },
 ];
 
 export const experiences = [
+     {
+        title: "Full Stack Developer",
+        company_name: "Shrinath Enterprises",
+        icon: Shrinath,
+        iconBg: "#85c5ff",
+        date: "Jan 2026 – Present",
+        points: [
+            "Developed an enterprise MERN-stack business management platform integrating inventory, sales, finance, invoices, expenses, and employee workflows.",
+            "Implemented JWT authentication, RBAC authorization, protected REST APIs, and middleware-based backend security workflows.",
+            "Built synchronized operational systems with analytics dashboards, invoice generation, and centralized transaction management.",
+            "Independently handled system architecture, frontend/backend development, database design, testing, and deployment workflows.",
+        ],
+    },
     {
         title: "Networking Head",
         company_name: "PUSH KJSCE",
@@ -117,24 +149,27 @@ export const experiences = [
 ];
 
 export const socialLinks = [
-    {
-        name: 'Contact',
-        iconUrl: contact,
-        link: '/contact',
-    },
+
     {
         name: 'GitHub',
         iconUrl: github,
-        link: 'https://github.com/YourGitHubUsername',
+        link: 'https://github.com/manndutiya23',
     },
     {
         name: 'LinkedIn',
         iconUrl: linkedin,
-        link: 'https://www.linkedin.com/in/YourLinkedInUsername',
+        link: 'https://linkedin.com/in/mann-dutiya-92b956292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     }
 ];
 
 export const projects = [
+        {
+        iconUrl: IBOP,
+        theme: 'btn-back-green',
+        name: 'Integrated Business Operations Platform (IBOP)',
+        description: 'Enterprise MERN-stack business management platform integrating inventory, sales, finance, invoices, expenses, analytics, and employee management. Implemented JWT authentication, RBAC authorization, protected REST APIs, workflow synchronization, invoice generation, and centralized operational dashboards.',
+        link: 'https://github.com/manndutiya23/IBOP-Integrated-buisness-operations-platform-',
+    },
     {
         iconUrl: sofa,
         theme: 'btn-back-red',

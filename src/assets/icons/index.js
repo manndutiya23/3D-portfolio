@@ -1,5 +1,7 @@
 import css from './css.svg'
 import express from './express.svg'
+import jwt from './jwt.svg'
+import rest from './rest.svg'
 import git from './git.svg'
 import github from './github.svg'
 import html from './html.svg'
@@ -29,6 +31,8 @@ import soundoff from './soundoff.png'
 import sofa from './sofa.svg'
 import dog from './dog.svg'
 import s from './s.png'
+import IBOP from './IBOP.png'
+import Shrinath from './Shrinath.png'
 
 export {
     css,
@@ -61,5 +65,9 @@ export {
     soundoff,
     sofa,
     dog,
-    s
+    s,
+    IBOP,
+    Shrinath,
+    jwt,
+    rest,
 }
