@@ -98,7 +98,7 @@ camera={{ near: 0.1, far: 1000 }}
         </Suspense>
       </Canvas>
 
-<div className="absolute left-2" style={{ bottom: "max(0.5rem, env(safe-area-inset-bottom))" }}>
+<div className="fixed left-2 z-50" style={{ bottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
         <img 
         src={!isPlayingMusic ? soundoff : soundon}
         alt="Sound "
