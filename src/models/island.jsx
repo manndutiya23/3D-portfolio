@@ -6,10 +6,10 @@ Source: https://sketchfab.com/3d-models/foxs-islands-163b68e09fcc47618450150be77
 Title: Fox's islands
 */
 
-import { useRef, useEffect, use } from 'react'
+import { useRef, useEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
-import {a} from '@react-spring/three'
+// 
 
 import islandScene from '../assets/3d/island.glb'
 
@@ -162,10 +162,10 @@ canvas.removeEventListener("lostpointercapture", endRotation);
 document.removeEventListener("keydown", handlekeydown);
 document.removeEventListener("keyup", handlekeyup);
 };
-}, [gl, handlePointerDown, handlePointerMove, endRotation]);
+}, [gl]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <a.group ref={islandRef} {...props} >
+    <group ref={islandRef} {...props} >
       <mesh
         geometry={nodes.polySurface944_tree_body_0.geometry}
         material={materials.PaletteMaterial001}
@@ -194,8 +194,9 @@ document.removeEventListener("keyup", handlekeyup);
         geometry={nodes.pCube11_rocks1_0.geometry}
         material={materials.PaletteMaterial001}
       />
-    </a.group>
+    </group>
   )
 }
 
 export default Island
+

@@ -1,17 +1,17 @@
-import {useRef, useEffect, use} from 'react'
+import {useRef, useEffect} from 'react'
 
 import birdscene from '../assets/3d/bird.glb';
 import { useAnimations, useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-const bird = () => {
+const Bird = () => {
     const birdRef = useRef();
     const { scene, animations } = useGLTF(birdscene);
     const { actions } = useAnimations(animations, birdRef);
 
     useEffect(() => {
-      actions['Take 001'].play();
-    }, [])
+      actions['Take 001']?.play();
+    }, [actions])
 
     useFrame(({ clock,  camera }) => {
       // update the y position to simulate flying moving in a sinus wave pattern
@@ -45,4 +45,4 @@ const bird = () => {
   )
 }
 
-export default bird
+export default Bird

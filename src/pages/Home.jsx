@@ -1,33 +1,33 @@
-import {Suspense, use, useState, useEffect, useRef} from 'react'
+import {Suspense, useState, useEffect, useRef} from 'react'
 import {Canvas} from '@react-three/fiber'
 import Loader from '../components/Loader'
 
 import Island from '../models/island';
 import Sky from '../models/Sky';
-import Brid from '../models/Bird';
+import Bird from '../models/Bird';
 import Plane from '../models/Plane';
 import HomeInfo from '../components/HomeInfo';
 
 import sakura from '../assets/sakura.mp3';
-import { useScroll } from '@react-three/drei';
+// removed unused useScroll import
 import { soundoff, soundon } from '../assets/icons';
 
 const Home = () => {
   const audioRef = useRef(new Audio(sakura));
-  audioRef.current.volume=0.4;
-  audioRef.current.loop = true;
   const [isrotating, setisrotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
 
   useEffect(() => {
+    // set audio properties once on mount
+    audioRef.current.volume = 0.4;
+    audioRef.current.loop = true;
+
     if (isPlayingMusic) {
       audioRef.current.play();
     }
 
-    return () => {
-      audioRef.current.pause();
-    }
+    const audio = audioRef.current; return () => { audio.pause(); }
   }, [isPlayingMusic])
 
   const adjustIslandForScreenSize = () => {
@@ -85,7 +85,7 @@ camera={{ near: 0.1, far: 1000 }}
           />
 
 
-          <Brid />
+          <Bird />
           <Sky isrotating={isrotating}/>
           <Island 
             position={islandPosition}

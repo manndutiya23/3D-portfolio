@@ -1,10 +1,7 @@
-import { push, ssrp, skream, tesla } from "../assets/images";
+import { push, ssrp, skream } from "../assets/images";
 import favicon from "/src/assets/favicon.ico"
 import {
-    car,
-    contact,
     css,
-    estate,
     express,
     jwt,
     rest,
@@ -14,19 +11,9 @@ import {
     javascript,
     linkedin,
     mongodb,
-    motion,
-    mui,
-    nextjs,
     nodejs,
-    pricewise,
     react,
-    redux,
-    sass,
-    snapgram,
-    summiz,
     tailwindcss,
-    threads,
-    typescript,
     sofa,
     dog,
     s,

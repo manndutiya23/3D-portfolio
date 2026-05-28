@@ -1,4 +1,4 @@
-import React, { use, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useAnimations, useGLTF } from '@react-three/drei';
 
 import planescene from '../assets/3d/plane.glb';

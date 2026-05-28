@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
-import { to } from '@react-spring/three';
+// removed unused import
 import { Canvas } from '@react-three/fiber';
 
 import Fox  from '../models/Fox'
@@ -75,7 +75,7 @@ const Contact = () => {
         <h1 className="head-text">Get in touch</h1>
         <p>* indicates required fields</p>
 
-        <form className="w-full flex flex-col gap-7 mt-14"
+        <form ref={formRef} className="w-full flex flex-col gap-7 mt-14"
         onSubmit={handleSubmit}
         >
           <label className="text-black-500 font-semibold">
