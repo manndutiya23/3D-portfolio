@@ -21,12 +21,14 @@ const Island = ({isrotating, setisrotating, setCurrentStage, ...props})  => {
 
   const lastX = useRef(0);
   const rotationspeed = useRef(0);
+  const isRotatingRef = useRef(false);
   const dampingfactor = 0.95;
 
 const handlePointerDown = (e) => {
 e.stopPropagation();
 e.preventDefault();
 setisrotating(true);
+isRotatingRef.current = true;
 
 if (e.pointerId !== undefined && e.target?.setPointerCapture) {
 e.target.setPointerCapture(e.pointerId);
@@ -46,13 +48,14 @@ e.target.releasePointerCapture(e.pointerId);
 }
 
 setisrotating(false);
+isRotatingRef.current = false;
 };
 
 const handlePointerMove = (e) => {
   e.stopPropagation();
   e.preventDefault();
 
-  if (isrotating) {
+  if (isRotatingRef.current) {
     const clientX = e.touches
       ? e.touches[0].clientX
       : e.clientX;
@@ -68,10 +71,12 @@ const handlePointerMove = (e) => {
   const handlekeydown = (e) => {
     if (e.key === 'ArrowLeft') {
       if(!isrotating) setisrotating(true);
+      isRotatingRef.current = true;
       islandRef.current.rotation.y += 0.01 * Math.PI;
         rotationspeed.current = 0.0125;
     } else if (e.key === 'ArrowRight') {
       if(!isrotating) setisrotating(true);
+      isRotatingRef.current = true;
       islandRef.current.rotation.y -= 0.01 * Math.PI;
       rotationspeed.current = -0.0125;
     }
@@ -80,6 +85,7 @@ const handlePointerMove = (e) => {
   const handlekeyup = (e) => {
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
       setisrotating(false);
+      isRotatingRef.current = false;
     }
   }
 
