@@ -19,6 +19,7 @@ import {
     s,
     IBOP,
     Shrinath,
+    Winnify,
 } from "../assets/icons";
 
 export const skills = [
@@ -80,6 +81,18 @@ export const skills = [
 ];
 
 export const experiences = [
+         {
+        title: "Career Intelligence Fellow",
+        company_name: "Winnify",
+        icon: Winnify,
+        iconBg: "#181cf9",
+        date: "May 2026 – July 2026",
+        points: [
+            "Contributed to the iterative development of WinSpeak, an AI-powered communication platform, by evaluating AI-driven features from a user and product perspective.",
+            "Conducted structured UAT across 200+ communication assessment scenarios, evaluating AI responses, conversational flows, scoring, reports, usability, and learning effectiveness.",
+            "Presented user insights, feature observations, and product improvement recommendations during product reviews with the founding team.",
+            "Evaluated AI-generated feedback across diverse speaking scenarios and helped validate product improvements through multiple release and iteration cycles."  ],
+    },
      {
         title: "Full Stack Developer",
         company_name: "Shrinath Enterprises",

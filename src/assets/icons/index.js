@@ -33,6 +33,7 @@ import dog from './dog.svg'
 import s from './s.png'
 import IBOP from './IBOP.png'
 import Shrinath from './Shrinath.png'
+import Winnify from './Winnify.png'
 
 export {
     css,
@@ -68,6 +69,7 @@ export {
     s,
     IBOP,
     Shrinath,
+    Winnify,
     jwt,
     rest,
 }
